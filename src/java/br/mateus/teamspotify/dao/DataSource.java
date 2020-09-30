@@ -23,12 +23,12 @@ public class DataSource {
     public DataSource(){
         try {
             hostname = "localhost";
-            database = "teamSpotify";
+            database = "teamspotify";
             username = "root";
             password = "3216540";
             String URL = "jdbc:mysql://"+hostname+":3306/"+database;
             DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-            connection = DriverManager.getConnection(URL, username, password);
+            connection = DriverManager.getConnection(URL+"?useTimeZone=true&serverTimezone=UTC&autoReconnect=true&useSSL=false", username, password);
             System.out.println("DataSource - Connected");    
         } 
         catch (SQLException ex) {
