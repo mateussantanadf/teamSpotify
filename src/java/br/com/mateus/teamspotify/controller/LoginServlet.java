@@ -5,9 +5,10 @@
  */
 package br.com.mateus.teamspotify.controller;
 
+import br.com.mateus.teamspotify.model.Usuario;
+import br.mateus.teamspotify.dao.DataSource;
 import br.mateus.teamspotify.dao.UsuarioDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -27,23 +28,28 @@ public class LoginServlet extends HttpServlet {
         
         String email = request.getParameter("txtEmail");
         String senha = request.getParameter("txtSenha");
-        String pagina;
-        
-        //Simular uma recuperação de dados BD
-        List<Object> res;
-        UsuarioDAO userDAO = new UsuarioDAO();
-        res = userDAO.read(null);
-        
-        if (email.equals("santanamateus02@gmail.com") && (senha.equals("1234"))){
-            
-            request.getSession().setAttribute("Usuario", res.get(0));
-            
-            pagina = "/myaccount.jsp";
+        Usuario incompleto = new Usuario();
+        incompleto.setEmail(email);
+        incompleto.setSenha(senha);
+        String pagina = "/erro.jsp";
+                
+        try {
+            DataSource ds = new DataSource();
+            UsuarioDAO userDAO = new UsuarioDAO(ds);
+            List<Object> res = userDAO.read(incompleto);
+            if (res != null && res.size() > 0){
+                pagina = "/myaccount.jsp";
+                request.getSession().setAttribute("Usuario", res.get(0));
+            }
+            else{
+                request.setAttribute("erroSTR", "Usuario / Senha Invalidos");
+            }
+            ds.getConnection().close();
+        } 
+        catch (Exception ex) {
+            request.setAttribute("erroSTR", "Erro ao recuperar");
         }
-        else{
-            request.setAttribute("erroSTR", "Email / Senha não encontrados!");
-            pagina = "/erro.jsp";
-        }
+
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pagina);
         dispatcher.forward(request, response);
         

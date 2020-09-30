@@ -5,57 +5,60 @@
  */
 package br.mateus.teamspotify.dao;
 
-import br.com.mateus.teamspotify.model.Musica;
-import br.com.mateus.teamspotify.model.PlayList;
 import br.com.mateus.teamspotify.model.Usuario;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.PreparedStatement;
 
 /**
  *
  * @author Mateus
  */
 public class UsuarioDAO implements GenericDAO{
+    
+    private DataSource dataSource;
+    public UsuarioDAO(DataSource dataSource){
+        this.dataSource = dataSource;
+    }
+    
+    public UsuarioDAO(){
+        
+    }
     public void create(Object o){
         
     }
     public List<Object> read(Object o){
-        Usuario usuario = new Usuario();
-        usuario.setId(1);
-        usuario.setEmail("santanamateus02@gmail.com");
-        usuario.setNome("Mateus");
-        usuario.setSenha("1234");
-        
-        ArrayList<PlayList> playlists=new ArrayList<PlayList>();
-        PlayList lista1 = new PlayList();
-        lista1.setId(1);
-        lista1.setTitulo("Classicos");
-        ArrayList<Musica> musicaP1 = new ArrayList<Musica>();
-        Musica m1 = new Musica();
-        m1.setId(1);
-        m1.setArtista("Iron Maiden");
-        m1.setTitulo("Wasted Years");
-        m1.setEstilo(1);
-        m1.setAlbum("Somewhere");
-        m1.setLinkMP3("musicas/IronMaiden-WastedYears.mp3");
-        
-        Musica m2 = new Musica();
-        m2.setId(2);
-        m2.setArtista("Scorpions");
-        m2.setTitulo("Rock You Like a Hurricane");
-        m2.setEstilo(1);
-        m2.setAlbum("Scorpions");
-        m2.setLinkMP3("musicas/Scorpions-RYLAH.mp3");
-        
-        musicaP1.add(m1);
-        musicaP1.add(m2);
-        lista1.setMusicas(musicaP1);
-        playlists.add(lista1);
-        usuario.setPlaylist(playlists);
-        
-        ArrayList<Object> resultado = new ArrayList<Object>();
-        resultado.add(usuario);
-        return resultado;
+        try {
+            if (o instanceof Usuario){
+                Usuario incompleto = (Usuario)o;
+                String SQL = "SELECT * FROM tblUsuario WHERE email = ? AND senha = ?";
+                PreparedStatement stm = dataSource.getConnection().prepareStatement(SQL);
+                stm.setString(1, incompleto.getEmail());
+                stm.setString(2, incompleto.getSenha());
+                ResultSet rs = stm.executeQuery();
+                ArrayList<Object> result = new ArrayList<Object>();
+                if (rs.next()){
+                    Usuario usuario = new Usuario();
+                    usuario.setId(rs.getInt("idUsuario"));
+                    usuario.setNome(rs.getString("nome"));
+                    usuario.setEmail(rs.getString("email"));
+                    usuario.setSenha(rs.getString("senha"));
+                    result.add(usuario);
+                }
+                stm.close();
+                rs.close();
+                return result;
+            }
+            else{
+                throw new RuntimeException("Invalid Object");
+            }
+        } 
+        catch (SQLException ex) {
+            System.out.println("Erro ao recuperar usuario "+ex.getMessage());
+        }
+        return null;
     }
     public void update(Object o){
         

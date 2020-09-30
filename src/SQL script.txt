@@ -1,0 +1,41 @@
+create database teamSpotify;
+
+use teamSpotify;
+
+create table tblMusica(
+	idMusica int not null auto_increment,
+    artista varchar(100),
+    album varchar(100),
+    estilos int,
+    linkMP3 text,
+    
+    constraint pk_musica primary key (idMusica)
+);    
+
+create table tblUsuario(
+	idUsuario int not null auto_increment,
+    nome varchar(100),
+    email varchar(100),
+    senha varchar(100),
+	constraint pk_usuario primary key (idUsuario)
+);
+
+create table tblPlaylist(
+		idPlaylist int not null auto_increment,
+        titulo varchar(100),
+        idUsuario int not null,
+        constraint pk_playlist primary key (idPlaylist),
+        constraint fk_usuario foreign key (idUsuario) references tblUsuario (idUsuario)
+);
+
+create table tblMusicaPalylist(
+	idPlaylist int not null,
+    idMusica int not null,
+    constraint pk_mp primary key (idPlaylist,IdMusica),
+    constraint fk_pl foreign key (idPlaylist) references tblPlaylist (idPlaylist),
+    constraint fk_mu foreign key (idMusica) references tblMusica (idMusica)
+);
+
+insert into tblUsuario values (null, 'Mateus', 'santanamateus02@gmail.com', '1234');
+insert into tblUsuario values (null, 'Rock', 'rock@rock.com', '1234');
+insert into tblUsuario values (null, 'Metal', 'metal@metal.com', '1234');
