@@ -6,8 +6,8 @@
 package br.com.mateus.teamspotify.controller;
 
 import br.com.mateus.teamspotify.model.Usuario;
-import br.mateus.teamspotify.dao.DataSource;
-import br.mateus.teamspotify.dao.UsuarioDAO;
+import br.com.mateus.teamspotify.dao.DataSource;
+import br.com.mateus.teamspotify.dao.UsuarioDAO;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
