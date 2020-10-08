@@ -57,6 +57,19 @@ public class Usuario implements java.io.Serializable {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+    public Usuario() {
+    }
+
+    public Usuario(int id, String nome, String email, String senha, List<PlayList> playlist) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.playlist = playlist;
+    }
     
-    
+    public String toString(){
+        return id + " - " + nome + " - " + email;
+    }
 }

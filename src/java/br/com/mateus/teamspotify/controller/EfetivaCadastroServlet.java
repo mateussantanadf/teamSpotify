@@ -43,7 +43,7 @@ public class EfetivaCadastroServlet extends HttpServlet {
         usuario.setSenha(senha);
         
         DataSource datasource = new DataSource();
-        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        UsuarioDAO usuarioDAO = new UsuarioDAO(datasource);
         usuarioDAO.create(usuario);
         System.out.println(usuario);
         
@@ -55,6 +55,8 @@ public class EfetivaCadastroServlet extends HttpServlet {
             request.setAttribute("erroMSG", "Erro ao criar nova conta de usuario");
             pagina = "/erro.jsp";
         }
+        
+        if(usuario.getId() != 0) request.getSession().setAttribute("Usuario", usuario);
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(pagina);
         dispatcher.forward(request, response);
     }

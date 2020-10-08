@@ -52,7 +52,7 @@
 							<label for="exampleInputNome">
 								Seu Nome
 							</label>
-                                                        <input type="text" class="form-control" id="exampleNome" name="txtNome"> 
+                                                        <input type="text" class="form-control" id="exampleInputNome" name="txtNome"> 
                                                 </div>
                                                 <div class="form-group">
                                                         <label for="exampleInputEmail1">

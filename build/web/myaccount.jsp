@@ -31,25 +31,21 @@
 		</div>
             </div>
                         
-            <div class="row" id="conteudo">
+            <div class="row" id="conteudo" >
                 <div class="col-md-2">
                     &nbsp;
                 </div>
-                <div class="col-md-8">
-                    <ul class="nav" >
-			<li class="nav-item md-auto">
-					<a class="nav-link active" href="#">Nova Playlist</a>
-			</li>
-			<li class="nav-item ml-md-auto">
-					<a class="nav-link" href="./myPlaylists">Minha Playlist</a>
-			</li>
-			<li class="nav-item ml-md-auto">
-					<a class="nav-link" href="#">Upload Playlist</a>
-			</li>
-                    </ul>            
+                <div class="col-md-2 btn botao" >
+                    <span class="text-center"> <a href="novamusica">Upload Musica</a> </span>
                 </div>
-                <div class="col-md-2">
-                    
+                <div class="col-md-2 btn botao">
+                    <span class="text-center"> <a href="playlists">Minhas Playlists</a> </span>
+                </div>
+                <div class="col-md-2 btn botao">
+                    <span class="text-center"> <a href="novaplaylist">Nova Playlist</a> </span>
+                </div>
+                <div class="col-md-2 btn botao">
+                    <span class="text-center"> <a href="logout">Logout</a> </span>
                 </div>
                 
             </div>            

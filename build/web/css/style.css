@@ -17,4 +17,12 @@ h3{
 
 .btn{
     background: #449d44;
+    border-color: #449d44;
+}
+
+.botao{
+    background: #449d44;
+    border-color: #449d44;
+    color: #FFFFFF;
+    border-radius: 10px;
 }

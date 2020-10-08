@@ -37,7 +37,6 @@ public class UsuarioDAO implements GenericDAO{
                 stm.setString(2, usuario.getEmail());
                 stm.setString(3, usuario.getSenha());
                 int res = stm.executeUpdate();
-                System.out.println(res);
                 if (res != 0){
                     ResultSet rs = stm.getGeneratedKeys();
                     if (rs.next()){
