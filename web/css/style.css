@@ -26,3 +26,54 @@ h3{
     color: #FFFFFF;
     border-radius: 10px;
 }
+
+.artista{
+    color: #FFFFFF;
+    font-size: smail;
+}
+
+.tituloMusica{
+    color: #FFFFFF;
+    font-size: meduim;
+}
+
+#imgplay{
+    width: 5%;
+    height: 5%;
+}
+
+.musica{
+    font-family: Verdana;
+    display: block;
+    font-style: bold;
+    height: 50px;
+    width: 100%;
+    margin: 10px;
+    color: black;
+    padding-left: 50px;
+    padding-top: 15px;
+    background-color: #66ff66;
+    border-radius: 5px;
+    background-image: url("/images/player.png");
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
+    background-position: left top;
+}
+
+#musicplayer{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+#nowPlaying{
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #ccff66;
+    color: black;
+}
+
+#playerContent{
+    margin-bottom: 80px;
+}

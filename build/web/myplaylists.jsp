@@ -18,7 +18,7 @@
   </head>
   <body>
 
-      <div class="container-fluid">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12" align="center">
                  <img src="images/logoSpotify.jpg" align="center" width="150" />
@@ -32,39 +32,35 @@
 		</div>
             </div>
                         
-            <div class="row" id="menu">
-                <div class="col-md-2">
-                    &nbsp;
+                <div class="row" id="conteudo" >
+                    <div class="col-md-2">
+                        &nbsp;
+                    </div>
+                    <div class="col-md-2 btn botao" >
+                        <span class="text-center"> <a href="novamusica">Upload Musica</a> </span>
+                    </div>
+                    <div class="col-md-2 btn botao">
+                        <span class="text-center"> <a href="playlists">Minhas Playlists</a> </span>
+                    </div>
+                    <div class="col-md-2 btn botao">
+                        <span class="text-center"> <a href="novaplaylist">Nova Playlist</a> </span>
+                    </div>
+                    <div class="col-md-2 btn botao">
+                        <span class="text-center"> <a href="logout">Logout</a> </span>
+                    </div>
+                    
                 </div>
-                <div class="col-md-8" text="center">
-                    <ul class="nav" >
-			<li class="nav-item md-auto">
-					<a class="nav-link active" href="#">Nova Playlist</a>
-			</li>
-			<li class="nav-item ml-md-auto">
-					<a class="nav-link" href="./myPlaylists">Minha Playlist</a>
-			</li>
-			<li class="nav-item ml-md-auto">
-					<a class="nav-link" href="#">Upload Playlist</a>
-			</li>
-                        
-                    </ul>            
-                </div>
+                <br>
                 <div class="col-md-2">
                     
                 </div>
                 
-            </div>
+        </div>
             <c:forEach var="playlist" items="${Usuario.playlist}">
                 <div class="row">
                     <div class="col-md-2"> &nbsp; </div>
                     <div class="col-md-8">
-                        ${playlist.titulo}                       
-                            <ul>
-                                <c:forEach var="musica" items="${playlist.musicas}">
-                                    <li>${musica.titulo} (${musica.artista})</li>
-                                </c:forEach> 
-                            </ul>
+                        <strong><a href="playlistdetails?id=${playlist.id}">${playlist.titulo}</strong></a><br>                          
                     </div>
                     <div class="col-md-2"> &nbsp; </div>
                 </div>

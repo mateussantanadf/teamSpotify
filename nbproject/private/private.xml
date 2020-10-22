@@ -3,8 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Mateus/Documents/NetBeansProjects/teamSpotify/src/java/br/com/mateus/teamspotify/dao/UsuarioDAO.java</file>
-            <file>file:/C:/Users/Mateus/Documents/NetBeansProjects/teamSpotify/src/java/br/com/mateus/teamspotify/controller/EfetivaCadastroServlet.java</file>
+            <file>file:/C:/Users/Mateus/Documents/NetBeansProjects/teamSpotify/web/novamusica.jsp</file>
+            <file>file:/C:/Users/Mateus/Documents/NetBeansProjects/teamSpotify/web/minhasmusicas.jsp</file>
+            <file>file:/C:/Users/Mateus/Documents/NetBeansProjects/teamSpotify/src/java/br/com/mateus/teamspotify/controller/RecuperaMusicasServlet.java</file>
+            <file>file:/C:/Users/Mateus/Documents/NetBeansProjects/teamSpotify/web/js/scripts.js</file>
+            <file>file:/C:/Users/Mateus/Documents/NetBeansProjects/teamSpotify/src/java/br/com/mateus/teamspotify/controller/IncluirNaPlaylistServlet.java</file>
+            <file>file:/C:/Users/Mateus/Documents/NetBeansProjects/teamSpotify/web/playlistdetails.jsp</file>
+            <file>file:/C:/Users/Mateus/Documents/NetBeansProjects/teamSpotify/web/result.jsp</file>
+            <file>file:/C:/Users/Mateus/Documents/NetBeansProjects/teamSpotify/web/myplaylists.jsp</file>
+            <file>file:/C:/Users/Mateus/Documents/NetBeansProjects/teamSpotify/src/java/br/com/mateus/teamspotify/dao/PlayListDAO.java</file>
         </group>
     </open-files>
 </project-private>

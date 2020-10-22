@@ -14,6 +14,7 @@ import java.util.List;
 public class PlayList implements java.io.Serializable {
     private int id;
     private String titulo;
+    private Usuario usuario;
     private List<Musica> musicas;
 
     public List<Musica> getMusicas() {
@@ -38,6 +39,14 @@ public class PlayList implements java.io.Serializable {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
     
     
